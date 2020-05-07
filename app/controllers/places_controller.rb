@@ -3,11 +3,10 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update]
 
   def index
-    @places = @places.all
+    @places = Places.all
   end
 
   def show
-    @place = place.find(params[:id])
   end
 
   def new
@@ -25,12 +24,11 @@ class PlacesController < ApplicationController
   end
 
   def edit
-    @place = Place.find(params[:id])
   end
 
   def update
-    @place = place.find(params[:id])
-    if @place.update(place_params)
+    @place.update(place_params)
+    if @place.save
       redirect_to dashboard_path
     else
       render :edit

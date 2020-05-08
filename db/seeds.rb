@@ -14,7 +14,7 @@ Place.destroy_all
 
 #Place 1
 
-file = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/camposoto_rkxsmx.jpg')
+#file = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/camposoto_rkxsmx.jpg')
 
 camposoto = Place.create(
     name: 'Camposoto',
@@ -24,12 +24,12 @@ camposoto = Place.create(
     longitude:-6.217831,
 )
 
-camposoto.photo.attach(io:file, filename:'playa.jpg', content_type: 'image?jpg')
+#camposoto.photos.attach(io:file, filename:'playa.jpg', content_type: 'image?jpg')
 
 
 #Place 2
 
-file = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/7_PLAYA_DEL_CASTELLAR_ku0fqb.jpg             ')
+#file = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/7_PLAYA_DEL_CASTELLAR_ku0fqb.jpg             ')
 
 castellar = Place.create(
     name: 'Castellar',
@@ -39,4 +39,22 @@ castellar = Place.create(
     longitude:-1.2965043,
 )
 
-castellar.photo.attach(io:file, filename:'playa.jpg', content_type: 'image?jpg')
+#castellar.photos.attach(io:file, filename:'playa.jpg', content_type: 'image?jpg')#Place 2
+
+
+#Place 3
+
+
+#file = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/7_PLAYA_DEL_CASTELLAR_ku0fqb.jpg             ')
+
+st = Place.create(
+    name: 'Fd',
+    description: 'Pequena playa que se encuentra Murcia',
+    address:'',
+    latitude:37.5613231,
+    longitude:-1.2965043,
+)
+
+#castellar.photos.attach(io:file, filename:'playa.jpg', content_type: 'image?jpg')
+
+

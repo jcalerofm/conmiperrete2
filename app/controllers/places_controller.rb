@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_place, only: [:show, :edit, :update]
+  before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
     @place = Places.geocoded
@@ -42,7 +42,6 @@ class PlacesController < ApplicationController
   end
 
   # def destroy
-  #   set_place
   #   @place.destroy
   #   redirect_to dashboard_path
   # end

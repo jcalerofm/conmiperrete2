@@ -4,10 +4,10 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.geocoded
-    @markers = @places.map do |i|
+    @markers = @places.map do |place|
       {
-        lat: i.latitude,
-        lng: i.longitude
+        lat: place.latitude,
+        lng: place.longitude
       }
     end
   end

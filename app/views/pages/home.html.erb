@@ -2,7 +2,7 @@
   <h1>Con mi Perrete</h1>
   <p>Encuentra playas y parques caninos para disfrutar con tu mejor amigo</p>
 </div>
-<div class="container text-center">
+<div class="container">
   <%= form_tag places_path, method: :get do %>
     <%= text_field_tag :places,
     params[:places], id: "place_address",

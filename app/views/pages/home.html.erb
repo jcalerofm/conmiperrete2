@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container text-center mt-4">
+  <h1>Con mi Perrete</h1>
+  <p>Encuentra playas y parques caninos para disfrutar con tu mejor amigo</p>
+</div>
+<div class="container text-center">
+  <%= form_tag places_path, method: :get do %>
+    <%= text_field_tag :places,
+    params[:places], id: "place_address",
+      placeholder: "Introduzca una localizacion" %>
+    <%= submit_tag "Buscar", class: "mt-2"%>
+  <% end %>
+</div>

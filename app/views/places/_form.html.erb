@@ -1,0 +1,12 @@
+<%= simple_form_for @place do |f| %>
+<%= f.input :name, label: 'Nombre'%>
+<%= f.input :description, label: 'Descripción' %>
+<%= f.input :photo, as: :file, label_:'Sube una foto' %>
+<%= f.submit 'Crear'%>
+<% end %>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+

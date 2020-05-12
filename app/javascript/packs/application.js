@@ -48,3 +48,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
+
+
+import { draggableMap } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  draggableMap();
+})

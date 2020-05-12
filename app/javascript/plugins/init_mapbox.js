@@ -64,3 +64,36 @@ const addMarkersToMap = (map, markers) => {
 
 export { initMapbox };
 
+// Map with draggables
+const draggableMap = () => {
+const mapper = document.getElementById('mapper');
+const coordinates = document.getElementById('coordinates');
+
+mapboxgl.accessToken = mapper.dataset.mapboxApiKey;
+
+//mapboxgl.accessToken = 'pk.eyJ1IjoibWNzdHIiLCJhIjoiY2s5eWN4Zjh3MDN1ZjNmczJ3MjFqeXNoeCJ9.K4cHfL9oaVplr2BfT4zjyQ';
+const map = new mapboxgl.Map({
+container: 'mapper',
+style: 'mapbox://styles/mcstr/ck9zdhznm37r51ipcypnv42hl',
+center: [-3.703551575565683, 40.41682800299995],
+zoom: 5
+});
+
+const marker = new mapboxgl.Marker({
+draggable: true
+})
+.setLngLat([-3.703551575565683, 40.41682800299995])
+.addTo(map);
+
+function onDragEnd() {
+const lngLat = marker.getLngLat();
+coordinates.style.display = 'block';
+coordinates.innerHTML =
+'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+}
+
+marker.on('dragend', onDragEnd);
+
+};
+
+export { draggableMap };

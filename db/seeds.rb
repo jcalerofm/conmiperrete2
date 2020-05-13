@@ -9,12 +9,16 @@
 
 require 'open-uri'
 
+puts 'Deleting all places'
 Place.destroy_all
 
 
 #Place 1
 
 file = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/camposoto_rkxsmx.jpg')
+
+
+puts 'Creating Places'
 
 camposoto = Place.create(
     name: 'Camposoto',
@@ -42,3 +46,5 @@ castellar = Place.create(
 castellar.photos.attach(io:file1, filename:'playa.jpg', content_type: 'image?jpg')#Place 2
 
 
+puts 'Places created'
+puts "You now have #{Place.count} places"

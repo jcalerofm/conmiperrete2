@@ -52,8 +52,8 @@ const initMapbox = () => {
     // }
 
 
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //                                   mapboxgl: mapboxgl }));
   }
 };
 

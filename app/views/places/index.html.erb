@@ -1,12 +1,30 @@
+<!--
 <% @places.each do |place| %>
 <h1><%= place.name %></h1>
 <h3><%= place.description %></h3>
 <h3><%= place.address %></h3>
 <% end %>
+-->
+
+<div class="container geocoder" id="searchform">
+  <%= form_tag places_path, method: :get do %>
+    <div class="d-flex">
+      <%= text_field_tag :places,
+      params[:places], id: "place_address",
+        placeholder: "Introduzca una localizacion",
+        style: "border-radius: 24px; height: 44px;" %>
+    </div>
+    <div>
+    <%= submit_tag "Buscar", class: "mt-2 mb-2",
+      style: "border-radius: 24px; width: 110px; height: 44px;" %>
+    </div>
+  <% end %>
+</div>
 
 <div id="map"
      id="geocoder"
-     style="width: 100%; height: 600px;"
+     class="container"
+     style="width: 80%; height: 600px; border: 5px"
      data-markers="<%= @markers.to_json %>"
      data-center="<%= @center.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>

@@ -34,8 +34,8 @@ const initMapboxCenter = (center) => {
         .setPopup(popup)
         .addTo(map);
     });
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //                                   mapboxgl: mapboxgl }));
   }
 };
 

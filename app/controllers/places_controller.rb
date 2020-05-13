@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
       marker = {
         lat: @temp_place.latitude,
         lng: @temp_place.longitude,
-        image_url: helpers.asset_url('https://picsum.photos/200/300'),
+        image_url: helpers.asset_url('https://image.flaticon.com/icons/png/512/149/149060.png'),
       }
       @markers << marker
       @temp_place.delete

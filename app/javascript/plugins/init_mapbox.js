@@ -91,7 +91,17 @@ center: [-3.703551575565683, 40.41682800299995],
 zoom: 5
 });
 
-const marker = new mapboxgl.Marker({
+const element = document.createElement('div')
+console.log('helo;');
+element.className = 'marker';
+element.style.backgroundImage = `url('https://res.cloudinary.com/dhkoueugk/image/upload/v1589373288/Perretes/Paw_Print_y6ixeh.svg')`;
+element.style.backgroundSize = '100% 100%';
+element.style.width = '25px';
+element.style.height = '25px';
+
+
+
+const marker = new mapboxgl.Marker(element, {
 draggable: true
 })
 .setLngLat([-3.703551575565683, 40.41682800299995])

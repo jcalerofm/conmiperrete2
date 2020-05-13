@@ -3,7 +3,6 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @temp_place = Place.create(name:'temp', description: 'temp', address: params[:places]) if params[:places]
     @places = Place.geocoded
     @markers = @places.map do |place|
       {
@@ -14,6 +13,7 @@ class PlacesController < ApplicationController
       }
     end
     if params[:places]
+      @temp_place = Place.create(name:'temp', description: 'temp', address: params[:places])
       @center = [@temp_place.latitude.dup, @temp_place.longitude.dup]
       marker = {
         lat: @temp_place.latitude,

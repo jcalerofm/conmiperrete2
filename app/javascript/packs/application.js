@@ -44,7 +44,16 @@ document.addEventListener('turbolinks:load', () => {
 //mapbox
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxCenter } from '../plugins/init_mapbox_center';
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    const center = JSON.parse(mapElement.dataset.center);
+    if (center) {
+      initMapboxCenter(center);
+    }else{
+      initMapbox();
+    }
+  }
 })

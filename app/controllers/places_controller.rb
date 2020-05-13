@@ -3,6 +3,7 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
+    @temp_place = Place.create(name:'temp', description: 'temp', address: params[:places]) if params[:places]
     @places = Place.geocoded
     @markers = @places.map do |place|
       {
@@ -10,9 +11,19 @@ class PlacesController < ApplicationController
         lng: place.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
         image_url: helpers.asset_url('https://res.cloudinary.com/dhkoueugk/image/upload/v1589016082/Perretes/pugpugjs_xzjmdi.svg'),
-
-
       }
+    end
+    if params[:places]
+      @center = [@temp_place.latitude.dup, @temp_place.longitude.dup]
+      marker = {
+        lat: @temp_place.latitude,
+        lng: @temp_place.longitude,
+        image_url: helpers.asset_url('https://picsum.photos/200/300'),
+      }
+      @markers << marker
+      @temp_place.delete
+    else
+      @center = 0
     end
   end
 

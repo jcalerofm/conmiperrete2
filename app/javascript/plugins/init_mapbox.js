@@ -17,7 +17,7 @@ const initMapbox = () => {
     const center = JSON.parse(mapElement.dataset.center);
       let map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mcstr/ck9zdhznm37r51ipcypnv42hl'
+        style: 'mapbox://styles/mapbox/streets-v11'
       });
 
       // let map = new mapboxgl.Map({
@@ -86,9 +86,25 @@ mapboxgl.accessToken = mapper.dataset.mapboxApiKey;
 //mapboxgl.accessToken = 'pk.eyJ1IjoibWNzdHIiLCJhIjoiY2s5eWN4Zjh3MDN1ZjNmczJ3MjFqeXNoeCJ9.K4cHfL9oaVplr2BfT4zjyQ';
 const map = new mapboxgl.Map({
 container: 'mapper',
-style: 'mapbox://styles/mcstr/ck9zdhznm37r51ipcypnv42hl',
+style: 'mapbox://styles/mapbox/streets-v11',
 center: [-3.703551575565683, 40.41682800299995],
 zoom: 5
+});
+
+map.on('load', function(){
+    var switchy = document.getElementById('remover');
+    switchy.addEventListener("click", function(){
+        switchy = document.getElementById('remover');
+        if (switchy.className === 'on') {
+            switchy.setAttribute('class', 'off');
+            map.setStyle("mapbox://styles/mapbox/streets-v11");
+            switchy.innerHTML = 'Add satellite';
+        } else {
+            switchy.setAttribute('class', 'on');
+            map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
+            switchy.innerHTML = 'Remove satellite';
+        }
+    });
 });
 
 const element = document.createElement('div')
@@ -115,6 +131,7 @@ coordinates.innerHTML =
 }
 
 marker.on('dragend', onDragEnd);
+
 
 
 // Add geolocate control to the map.

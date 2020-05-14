@@ -11,24 +11,28 @@ const initMapboxCenter = (center) => {
 
     let map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mcstr/cka6i589m0l6a1inpx23bkzie',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: [center[1], center[0]],
       zoom: 10
     });
 
-     //change layer from streets to satellite
-    var layerList = document.getElementById('menu');
-    var inputs = layerList.getElementsByTagName('input');
 
-    function switchLayer(layer) {
-    var layerId = layer.target.id;
-    map.setStyle('mapbox://styles/mapbox/' + layerId);
-    }
 
-    for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
-    }
-
+    map.on('load', function(){
+    var switchy = document.getElementById('remover');
+    switchy.addEventListener("click", function(){
+        switchy = document.getElementById('remover');
+        if (switchy.className === 'on') {
+            switchy.setAttribute('class', 'off');
+            map.setStyle("mapbox://styles/mapbox/streets-v11");
+            switchy.innerHTML = 'Add satellite';
+        } else {
+            switchy.setAttribute('class', 'on');
+            map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
+            switchy.innerHTML = 'Remove satellite';
+        }
+    });
+});
 
 
     const markers = JSON.parse(mapElement.dataset.markers);

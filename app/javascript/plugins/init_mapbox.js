@@ -19,7 +19,21 @@ const initMapbox = () => {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11'
       });
-
+      map.on('load', function(){
+          var switchy = document.getElementById('remover');
+          switchy.addEventListener("click", function(){
+              switchy = document.getElementById('remover');
+              if (switchy.className === 'on') {
+                  switchy.setAttribute('class', 'off');
+                  map.setStyle("mapbox://styles/mapbox/streets-v11");
+                  switchy.innerHTML = 'Add satellite';
+              } else {
+                  switchy.setAttribute('class', 'on');
+                  map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
+                  switchy.innerHTML = 'Remove satellite';
+              }
+          });
+      });
       // let map = new mapboxgl.Map({
       //   container: 'map',
       //   style: 'mapbox://styles/mcstr/ck9zdhznm37r51ipcypnv42hl',
@@ -108,7 +122,6 @@ map.on('load', function(){
 });
 
 const element = document.createElement('div')
-console.log('helo;');
 element.className = 'marker';
 element.style.backgroundImage = `url('https://res.cloudinary.com/dhkoueugk/image/upload/v1589373288/Perretes/Paw_Print_y6ixeh.svg')`;
 element.style.backgroundSize = '100% 100%';

@@ -28,3 +28,15 @@
      data-markers="<%= @markers.to_json %>"
      data-center="<%= @center.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<div id="menu">
+<input
+id="streets-v11"
+type="radio"
+name="rtoggle"
+value="streets"
+checked="checked"
+/> <label for="streets">streets</label>
+<input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+<label for="satellite">satellite</label>
+</div>

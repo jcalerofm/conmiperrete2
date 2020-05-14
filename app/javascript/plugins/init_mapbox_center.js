@@ -11,10 +11,25 @@ const initMapboxCenter = (center) => {
 
     let map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mcstr/ck9zdhznm37r51ipcypnv42hl',
+      style: 'mapbox://styles/mcstr/cka6i589m0l6a1inpx23bkzie',
       center: [center[1], center[0]],
       zoom: 10
     });
+
+     //change layer from streets to satellite
+    var layerList = document.getElementById('menu');
+    var inputs = layerList.getElementsByTagName('input');
+
+    function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId);
+    }
+
+    for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+    }
+
+
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {

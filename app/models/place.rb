@@ -5,4 +5,7 @@ class Place < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   after_validation :reverse_geocode
+  belongs_to :user
+  validates  :longitude, presence: true
+  validates  :latitude, presence: true
 end

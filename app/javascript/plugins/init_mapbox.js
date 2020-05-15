@@ -141,6 +141,15 @@ const lngLat = marker.getLngLat();
 coordinates.style.display = 'block';
 coordinates.innerHTML =
 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+
+    //pass lat and lng
+    console.log(lngLat)
+    const latInput = document.getElementById("place_latitude");
+    const lngInput = document.getElementById("place_longitude");
+    console.log(latInput)
+
+    latInput.value = lngLat.lat;
+    lngInput.value = lngLat.lng;
 }
 
 marker.on('dragend', onDragEnd);

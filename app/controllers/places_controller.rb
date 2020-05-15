@@ -18,6 +18,7 @@ class PlacesController < ApplicationController
       marker = {
         lat: @temp_place.latitude,
         lng: @temp_place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
         image_url: helpers.asset_url('https://image.flaticon.com/icons/png/512/149/149060.png'),
       }
       @markers << marker

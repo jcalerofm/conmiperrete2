@@ -1,18 +1,22 @@
-<div class="container text-center mt-4">
-  <h1 style="font-family: 'Caveat', cursive; font-size: 85px;">Con mi Perrete</h1>
-  <p style="font-family: 'Lato', sans-serif; font-size: 17px;">Encuentra playas y parques caninos para disfrutar con tu mejor amigo</p>
-</div>
-<div class="container geocoder" id="searchform">
-  <%= form_tag places_path, method: :get do %>
-    <div class="d-flex">
-      <%= text_field_tag :places,
-      params[:places], id: "place_address",
-        placeholder: "Introduzca una localizacion",
-        style: "border-radius: 24px; height: 44px;" %>
-    </div>
-    <div>
-    <%= submit_tag "Buscar", class: "mt-2",
-      style: "border-radius: 24px; width: 110px; height: 44px;" %>
-    </div>
-  <% end %>
-</div>
+
+  <div class="container text-center mt-4">
+    <h1 style="font-family: 'Atmosphere', cursive; font-size: 85px;">Con mi Perrete</h1>
+    <p style="font-family: 'Lato', sans-serif; font-size: 17px;">Encuentra playas y parques caninos para disfrutar con tu mejor amigo</p>
+  </div>
+  <div class="container geocoder" id="searchform">
+    <%= form_tag places_path, method: :get do %>
+      <div class="d-flex">
+        <%= text_field_tag :places,
+        params[:places], id: "place_address",
+          placeholder: "Introduzca una localizacion",
+          style: "border-radius: 24px; height: 44px;" %>
+          <div>
+
+      <%= submit_tag "Buscar", id: "searchbutton", class: "ml-1",
+        style: "border-radius: 24px; width: 110px; height: 44px;" %>
+      </div>
+      </div>
+
+    <% end %>
+  </div>
+

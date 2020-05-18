@@ -1,0 +1,14 @@
+<div class="container" style="padding-top: 90px;">
+  <h1>Edita tu perfil:</h1>
+    <div class=“pt-10”>
+     <%= simple_form_for @user do |f| %>
+       <%= f.input :name %>
+       <%= f.input :bio %>
+       <%= f.input :email %>
+
+       <%= f.submit("Guardar", class: "btn btn-secondary") %>
+     <% end %>
+
+     <p><%= link_to "Volver", dashboard_path, class: 'btn mt-5' %></p>
+  </div>
+</div>

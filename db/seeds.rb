@@ -31,7 +31,8 @@ camposoto = Place.create!(
     name: 'Camposoto',
     description: 'Pequena playa que se encuentra en San Fernando',
     address:'',
-    latitude: 36.402305,
+    category: 'Playa',
+    latitude:36.402305,
     longitude:-6.217831,
     user: u1
 )
@@ -47,6 +48,7 @@ castellar = Place.create(
     name: 'Castellar',
     description: 'Pequena playa que se encuentra Murcia',
     address:'',
+    category: 'Playa',
     latitude:37.5613231,
     longitude:-1.2965043,
     user: u1
@@ -54,6 +56,15 @@ castellar = Place.create(
 
 castellar.photos.attach(io:file1, filename:'playa.jpg', content_type: 'image?jpg')#Place 2
 
+retiro = Place.create(
+    name: 'El Retiro',
+    description: 'Madri esto, Madri lo otro',
+    address:'',
+    category: 'Parque',
+    latitude:40.4151561,
+    longitude:-3.6807313,
+    user: u1
+)
 
 puts 'Places created'
 puts "You now have #{Place.count} places"

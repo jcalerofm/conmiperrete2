@@ -4,23 +4,21 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.geocoded
-    if @places.category == CATEGORIES[0]
-      @markers = @places.map do |place|
-        {
-          lat: place.latitude,
-          lng: place.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
-          image_url: helpers.asset_url('https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Beach-512.png'),
-        }
-      end
-    else
-      @markers = @places.map do |place|
-        {
-          lat: place.latitude,
-          lng: place.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
-          image_url: helpers.asset_url('https://cdn0.iconfinder.com/data/icons/citycons/150/Citycons_park-512.png'),
-        }
+    @markers = @places.map do |place|
+      if place.category == Place::CATEGORIES[0]
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+        image_url: helpers.asset_url('https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Beach-512.png'),
+      }
+      else
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+        image_url: helpers.asset_url('https://cdn0.iconfinder.com/data/icons/citycons/150/Citycons_park-512.png'),
+      }
       end
     end
 

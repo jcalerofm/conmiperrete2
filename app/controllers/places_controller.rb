@@ -5,13 +5,24 @@ class PlacesController < ApplicationController
   def index
     @places = Place.geocoded
     @markers = @places.map do |place|
+      if place.category == Place::CATEGORIES[0]
       {
         lat: place.latitude,
         lng: place.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
-        image_url: helpers.asset_url('https://res.cloudinary.com/dhkoueugk/image/upload/v1589016082/Perretes/pugpugjs_xzjmdi.svg'),
+        image_url: helpers.asset_url('https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Beach-512.png'),
       }
+      else
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+        image_url: helpers.asset_url('https://cdn0.iconfinder.com/data/icons/citycons/150/Citycons_park-512.png'),
+      }
+      end
     end
+
+
     if params[:places]
       @temp_place = Place.create(name:'temp', description: 'temp', address: params[:places])
       @center = [@temp_place.latitude.dup, @temp_place.longitude.dup]
@@ -69,6 +80,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :description, :photo, :latitude, :longitude)
+    params.require(:place).permit(:name, :category, :description, :photo, :latitude, :longitude)
   end
 end

@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  CATEGORIES = ['Playa', 'Parque']
   has_many_attached :photos
   has_many :reviews
   reverse_geocoded_by :latitude, :longitude

@@ -1,10 +1,4 @@
-<!--
-<% @places.each do |place| %>
-<h1><%= place.name %></h1>
-<h3><%= place.description %></h3>
-<h3><%= place.address %></h3>
-<% end %>
--->
+<%= render 'shared/navbar' %>
 
 <div class="container geocoder" id="searchform">
   <%= form_tag places_path, method: :get do %>

@@ -23,7 +23,18 @@
 }
 
 @font-face {
-   font-family: 'Atmosphere';
-   src: url('/fonts/Atmosphere-Regular.ttf')
+    font-family: 'Atmosphere Script Typeface';
+    src: url('AtmosphereScriptTypeface.eot');
+    src: url('AtmosphereScriptTypeface.eot?#iefix') format('embedded-opentype'),
+        url('AtmosphereScriptTypeface.woff2') format('woff2'),
+        url('AtmosphereScriptTypeface.woff') format('woff'),
+        url('AtmosphereScriptTypeface.ttf') format('truetype'),
+        url('AtmosphereScriptTypeface.svg#AtmosphereScriptTypeface') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
+@font-face {
+   font-family: 'Sidney';
+   src: url('/fonts/Sidney.ttf')
+}

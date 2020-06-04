@@ -7,7 +7,24 @@
   box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 }
 
+#conmiperrete {
+  content: url(https://res.cloudinary.com/dhkoueugk/image/upload/v1591088641/Perretes/Con_mi_Perrete1_werbla.svg);
+  height: 200px;
+  width: 100%;
 
+
+}
+
+@media (max-width: 899px) {
+  #conmiperrete{
+    display: block;
+    content: url(https://res.cloudinary.com/dhkoueugk/image/upload/v1591088117/Perretes/conmiperrete2_lfhrwy.svg);
+    height: 300px;
+    width: 100%;
+    margin: auto;
+  }
+
+}
 
 // .banner h1 {
 //   margin: 0;

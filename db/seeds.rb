@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 require 'open-uri'
 
 puts 'Deleting all places'
@@ -27,7 +18,7 @@ file = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/P
 
 puts 'Creating Places'
 
-camposoto = Place.create!(
+camposoto = Place.create(
     name: 'Camposoto',
     description: 'Pequena playa que se encuentra en San Fernando',
     address:'',
@@ -37,12 +28,12 @@ camposoto = Place.create!(
     user: u1
 )
 
-camposoto.photos.attach(io:file, filename:'playa.jpg', content_type: 'image?jpg')
+camposoto.photo.attach(io:file, filename:'playa.jpg', content_type: 'image/jpeg')
 
 
 #Place 2
 
-file1 = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/7_PLAYA_DEL_CASTELLAR_ku0fqb.jpg')
+file1 = URI.open('https://res.cloudinary.com/dhkoueugk/image/upload/v1588928159/Perretes/7_PLAYA_DEL_CASTELLAR_ku0fqb.jpeg')
 
 castellar = Place.create(
     name: 'Castellar',
@@ -54,17 +45,17 @@ castellar = Place.create(
     user: u1
 )
 
-castellar.photos.attach(io:file1, filename:'playa.jpg', content_type: 'image?jpg')#Place 2
+castellar.photo.attach(io:file1, filename:'playa.jpg', content_type: 'image/jpg')#Place 2
 
-retiro = Place.create(
-    name: 'El Retiro',
-    description: 'Madri esto, Madri lo otro',
-    address:'',
-    category: 'Parque',
-    latitude:40.4151561,
-    longitude:-3.6807313,
-    user: u1
-)
+# retiro = Place.create(
+#     name: 'El Retiro',
+#     description: 'Madri esto, Madri lo otro',
+#     address:'',
+#     category: 'Parque',
+#     latitude:40.4151561,
+#     longitude:-3.6807313,
+#     user: u1
+# )
 
 puts 'Places created'
 puts "You now have #{Place.count} places"

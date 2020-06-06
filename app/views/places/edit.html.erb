@@ -1,0 +1,19 @@
+<%= simple_form_for @place do |f| %>
+<%= f.input :name, label: 'Nombre'%>
+<%= f.input :category, as: :radio_buttons, collection: Place::CATEGORIES, label: 'Categoría' %>
+<%= f.input :description, label: 'Descripción' %>
+<%= f.input :longitude, :as => :hidden %>
+<%= f.input :latitude,  :as => :hidden  %>
+<%= f.input :photo, as: :file, label_:'Sube una foto' %>
+<%= f.submit 'Crear'%>
+<% end %>
+
+<div id="mapper"
+      class="container"
+     style="width: 80%; height: 600px; border: 5px"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<button id='remover'>Add satellite</button>
+
+
+<pre id="coordinates" class="coordinates"></pre>

@@ -16,23 +16,17 @@ const initMapboxCenter = (center) => {
       zoom: 10
     });
 
+    var layerList = document.getElementById('menu');
+    var inputs = layerList.getElementsByTagName('input');
 
+    function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId);
+    }
 
-    map.on('load', function(){
-    var switchy = document.getElementById('remover');
-    switchy.addEventListener("click", function(){
-        switchy = document.getElementById('remover');
-        if (switchy.className === 'on') {
-            switchy.setAttribute('class', 'off');
-            map.setStyle("mapbox://styles/mapbox/streets-v11");
-            switchy.innerHTML = 'Add satellite';
-        } else {
-            switchy.setAttribute('class', 'on');
-            map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
-            switchy.innerHTML = 'Remove satellite';
-        }
-    });
-});
+    for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+    }
 
 
     const markers = JSON.parse(mapElement.dataset.markers);

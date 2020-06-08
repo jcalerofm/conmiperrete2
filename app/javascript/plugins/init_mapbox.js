@@ -26,11 +26,11 @@ const initMapbox = () => {
               if (switchy.className === 'on') {
                   switchy.setAttribute('class', 'off');
                   map.setStyle("mapbox://styles/mapbox/streets-v11");
-                  switchy.innerHTML = 'Add satellite';
+                  switchy.innerHTML = 'Satellite';
               } else {
                   switchy.setAttribute('class', 'on');
                   map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
-                  switchy.innerHTML = 'Remove satellite';
+                  switchy.innerHTML = 'Street';
               }
           });
       });

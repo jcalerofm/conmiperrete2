@@ -19,28 +19,19 @@ const initMapbox = () => {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11'
       });
-      map.on('load', function(){
-          var switchy = document.getElementById('remover');
-          switchy.addEventListener("click", function(){
-              switchy = document.getElementById('remover');
-              if (switchy.className === 'on') {
-                  switchy.setAttribute('class', 'off');
-                  map.setStyle("mapbox://styles/mapbox/streets-v11");
-                  switchy.innerHTML = 'Satellite';
-              } else {
-                  switchy.setAttribute('class', 'on');
-                  map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
-                  switchy.innerHTML = 'Street';
-              }
-          });
-      });
-      // let map = new mapboxgl.Map({
-      //   container: 'map',
-      //   style: 'mapbox://styles/mcstr/ck9zdhznm37r51ipcypnv42hl',
-      //   center: [center[1], center[0]],
-      //   zoom: 10
-      // });
 
+
+      var layerList = document.getElementById('menu');
+      var inputs = layerList.getElementsByTagName('input');
+
+      function switchLayer(layer) {
+      var layerId = layer.target.id;
+      map.setStyle('mapbox://styles/mapbox/' + layerId);
+      }
+
+      for (var i = 0; i < inputs.length; i++) {
+      inputs[i].onclick = switchLayer;
+      }
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {

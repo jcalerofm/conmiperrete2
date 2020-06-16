@@ -23,22 +23,22 @@ display: none;
 width: 10%;
 }
 
+.mapboxgl-control-container {
+        display: none !important;
+      }
+
 .mapcontainer {
   height: 80vh;
 }
 
-#map {
-position: absolute;
-margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
-z-index: 0;
-}
+
 
 #menu {
 position: absolute;
 z-index: 1;
+bottom: 0;
+right: 0;
+margin-right: 2px;
 background: rgba(192,192,192, 0.3);
 height: 20px;
 }

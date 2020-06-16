@@ -51,6 +51,7 @@ const initMapboxCenter = (center) => {
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     //                                   mapboxgl: mapboxgl }));
   }
+
 };
 
 export { initMapboxCenter };

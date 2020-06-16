@@ -1,7 +1,7 @@
 <div class="container">
 
 <% if place.photo.record.name == "temp" %>
-   <h4><%= place.name %></h4>
+  <h4><%= place.name %></h4>
   <p><%= place.address %></p>
   <% else %>
   <%= cl_image_tag(place.photo.key, width: 100) %>

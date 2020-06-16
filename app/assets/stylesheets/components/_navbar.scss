@@ -10,3 +10,28 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+// navbar-home
+
+.navbar-lewagon-home .navbar-brand img {
+  width: 40px;
+  opacity: 1;
+}
+.navbar-lewagon-home .navbar-collapse {
+  flex-grow: 0;
+}
+
+
+.navbar-lewagon-home{
+  justify-content: space-between;
+  text-align: left;
+  background-color: transparent;
+}
+#login-home{
+  color: white;
+}
+
+#signup-home{
+  color: white;
+}

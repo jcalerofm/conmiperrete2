@@ -17,6 +17,9 @@
   <body>
 
     <%= render 'shared/flashes' %>
+    <% if !current_page?(root_url)%>
+    <%= render 'shared/navbar' %>
+    <% end %>
 
     <%= yield %>
   </body>

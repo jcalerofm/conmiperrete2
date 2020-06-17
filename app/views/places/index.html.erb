@@ -3,7 +3,7 @@
 
        style="position: absolute;
         width: 100%;
-        height: 91vh;
+        height: 100vh;
         margin-left: auto;
         margin-right: auto;
         left: 0;
@@ -15,16 +15,17 @@
 <div class="row"
       style="justify-content: space-between;
       position: relative;
+      height: 100vh;
       left: 0;
       right: 0;
       z-index: 1;" >
-  <div class=" col-md-6 ml-7d mr-1 geocoder mt-3" id="searchform">
+  <div class=" col-md-6 ml-1 mr-1 geocoder mt-1" id="searchform" >
     <%= form_tag places_path, method: :get do %>
       <div class="d-flex mb-2 mt-2" >
         <%= text_field_tag :places,
         params[:places], id: "place_address",
           placeholder: "Introduzca una localizacion",
-          style: "border-radius: 24px; height: 44px; " %>
+          style: "border-radius: 24px; height: 44px; font-family: 'lato'; font-size: 14px; " %>
           <div>
       <%= submit_tag "Buscar", id: "searchbutton", class: "ml-1 btn btn-primary",
         style: "border-radius: 24px; width: 110px; height: 44px; font-family: 'lato';" %>
@@ -35,9 +36,10 @@
     </div>
 
 </div>
+</div>
   <div class="col-md-2 "
         style="justify-content: flex-end;
-              bottom: 5%;
+              bottom: 0;
               position: absolute;
               z-index: 1;
               padding-left: 5px;">
@@ -62,4 +64,4 @@
 
 
 
-</div>
+

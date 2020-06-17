@@ -36,9 +36,10 @@ width: 10%;
 #menu {
 position: absolute;
 z-index: 1;
-bottom: 1%;
+bottom: 0;
 right: 0;
 margin-right: 2px;
+margin-bottom: 10px;
 background: rgba(192,192,192, 0.3);
 height: 20px;
 }

@@ -38,4 +38,18 @@
    src: url('/fonts/Sidney.ttf')
 }
 
+#homepageresponsive {
+  display: flex;
+}
 
+@media (max-width: 576px) {
+    #homepageresponsive {
+      display:block
+    }
+
+    .botonbuscar {
+      margin: 0 auto;
+      margin-top: 12px;
+      text-align: center;
+    }
+ }

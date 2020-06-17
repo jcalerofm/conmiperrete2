@@ -53,3 +53,47 @@
       text-align: center;
     }
  }
+
+@media (max-width: 321px){
+  .navbar{
+    height: 10vh;
+  }
+
+  #map{
+    height: 90vh;
+  }
+}
+
+@media (width: 375px){
+  .navbar{
+    height: 7vh;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

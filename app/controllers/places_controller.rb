@@ -27,9 +27,9 @@ class PlacesController < ApplicationController
       @temp_place = Place.create(name:'temp', description: 'temp', address: params[:places])
       @center = [@temp_place.latitude.dup, @temp_place.longitude.dup]
       marker = {
-        lat: @temp_place.latitude,
-        lng: @temp_place.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
+        # lat: @temp_place.latitude,
+        # lng: @temp_place.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
       }
       @markers << marker
       @temp_place.delete

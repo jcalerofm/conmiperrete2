@@ -1,11 +1,13 @@
-<div class="container">
+<div class="info-window">
 
-<% if place.photo.record.name == "temp" %>
-  <h4><%= place.name %></h4>
-  <p><%= place.address %></p>
+  <% if place.photo.attached?%>
+    <%= cl_image_tag place.photo.key, class: "info-photo"%>
+      <h4><%= place.name %></h4>
+      <p><%= place.address %></p>
   <% else %>
-  <%= cl_image_tag(place.photo.key, width: 100) %>
-  <h4><%= link_to(place.name, "http://www.google.com/maps/place/#{place.latitude}, #{place.longitude}")%></h4>
-  <p><%= place.address %></p>
+    <%= cl_image_tag("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg", class: "info-photo") %>
+    <h4><%= place.name %></h4>
+    <p><%= place.address %></p>
   <% end %>
-</div>
+
+ </div>

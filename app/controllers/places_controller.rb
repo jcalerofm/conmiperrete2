@@ -39,6 +39,7 @@ class PlacesController < ApplicationController
   end
 
   def show
+    set_place
   end
 
   def new

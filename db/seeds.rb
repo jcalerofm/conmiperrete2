@@ -20,7 +20,9 @@ puts 'Creating Places'
 
 camposoto = Place.create(
     name: 'Camposoto',
-    description: 'Pequena playa que se encuentra en San Fernando',
+    description: 'La zona de playa canina es la que se encuentra entre el acceso 8 y la Punta de Boquerón, más o menos donde se indica en el mapa. Debes caminar unos 2km hasta llegar a la zona para perros (unos 20 minutos a pie).
+
+Esta playa canina ha sido motivo de muchas quejas por parte de los usuarios debido a las malas condiciones y la longitud del sendero que hay de recorrer para acceder a la playa.',
     address:'',
     category: 'Playa',
     latitude:36.402305,

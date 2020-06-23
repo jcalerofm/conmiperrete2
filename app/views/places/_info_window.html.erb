@@ -4,7 +4,7 @@
     <%= cl_image_tag place.photo.key, width: 200, class: "card-img-top" %>
       <h4><%= place.name %></h4>
       <p class="text-left"><%= place.address %></p>
-      <div class="text-right"><%= link_to "Ver mas", place_path(place), class: "btn btn-primary text-center", style: "border-radius: 24px; width: 90px; font-family: 'Lato';" %></div>
+      <div class="text-right"><%= link_to "Mas Info", place_path(place), class: "btn btn-primary text-center", style: "border-radius: 24px; width: 90px; font-family: 'Lato';" %></div>
   <% else %>
     <%= cl_image_tag("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg", width: 200) %>
     <h4><%= place.name %></h4>

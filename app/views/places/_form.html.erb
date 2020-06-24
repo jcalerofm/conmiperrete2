@@ -10,13 +10,13 @@
       class="container"
      style="width: 80%; height: 600px; border: 5px"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  <div id="menu">
+  <<div id="menu">
     <input
     id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked"/>
     <label for="streets-v11">mapa</label>
     <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
     <label for="satellite-v9">satelite</label>
-  </div>
+    </div>
 </div>
 <%= f.submit 'Crear'%>
 <% end %>

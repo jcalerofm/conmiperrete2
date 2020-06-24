@@ -42,7 +42,20 @@
   display: flex;
 }
 
+.mapboxgl-popup-close-button {
+  display:none !important
+}
 
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Lato', sans-serif !important;
+  border-radius: 15px !important ;
+  box-shadow: 10px 10px 20px -13px rgba(0,0,0,0.47) !important;
+}
+
+.mapboxgl-popup-content img {
+  border-radius: 10px !important;
+}
 
 @media (max-width: 576px) {
     #homepageresponsive {

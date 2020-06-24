@@ -1,8 +1,8 @@
-<div class="container">
+<div>
 
   <% if place.photo.attached?%>
     <%= cl_image_tag place.photo.key, width: 200, class: "card-img-top" %>
-      <h4><%= place.name %></h4>
+      <h4 class="mt-1" style="font-weight: bold;"><%= place.name %></h4>
       <p class="text-left"><%= place.address %></p>
       <div class="text-right"><%= link_to "Mas Info", place_path(place), class: "btn btn-primary text-center", style: "border-radius: 24px; width: 90px; font-family: 'Lato';" %></div>
   <% else %>

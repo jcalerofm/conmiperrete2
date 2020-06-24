@@ -1,7 +1,7 @@
 
 <div class="container mt-5">
   <div class="row">
-    <% if place.photo.attached?%>
+    <% if @place.photo.attached?%>
       <div class="col-md">
          <%= cl_image_tag @place.photo.key, width: 600, height: 400, crop: :fill, class: "img-fluid" %>
       </div>

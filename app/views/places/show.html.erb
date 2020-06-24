@@ -1,9 +1,15 @@
 
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md">
-       <%= cl_image_tag @place.photo.key, width: 600, height: 400, crop: :fill, class: "img-fluid" %>
-    </div>
+    <% if place.photo.attached?%>
+      <div class="col-md">
+         <%= cl_image_tag @place.photo.key, width: 600, height: 400, crop: :fill, class: "img-fluid" %>
+      </div>
+      <% else %>
+      <div class="col-md">
+          <%= cl_image_tag("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg", width: 600, height: 400, crop: :fill, class: "card-img-top") %>
+      </div>
+      <% end %>
     <div class="col-md">
       <h1 style="font-weight: bold;"><%= @place.name %></h1>
       <p><%= @place.description %></p>

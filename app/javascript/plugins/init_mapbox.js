@@ -92,27 +92,23 @@ const draggableMap = () => {
   mapboxgl.accessToken = mapper.dataset.mapboxApiKey;
 
   const map = new mapboxgl.Map({
-  container: 'mapper',
-  style: 'mapbox://styles/mapbox/streets-v11',
-  center: [-3.703551575565683, 40.41682800299995],
-  zoom: 5
+    container: 'mapper',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-3.703551575565683, 40.41682800299995],
+    zoom: 5
   });
 
-  map.on('load', function(){
-      var switchy = document.getElementById('remover');
-      switchy.addEventListener("click", function(){
-          switchy = document.getElementById('remover');
-          if (switchy.className === 'on') {
-              switchy.setAttribute('class', 'off');
-              map.setStyle("mapbox://styles/mapbox/streets-v11");
-              switchy.innerHTML = 'Add satellite';
-          } else {
-              switchy.setAttribute('class', 'on');
-              map.setStyle("mapbox://styles/mapbox/satellite-streets-v11");
-              switchy.innerHTML = 'Remove satellite';
-          }
-      });
-  });
+  var layerList = document.getElementById('menu');
+  var inputs = layerList.getElementsByTagName('input');
+
+  function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId);
+  }
+
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+  }
 
   const element = document.createElement('div')
   element.className = 'marker';
@@ -129,26 +125,26 @@ const draggableMap = () => {
   }
 
   const marker = new mapboxgl.Marker(element, {
-  draggable: true
+   draggable: true
   })
   .setLngLat([-3.703551575565683, 40.41682800299995])
   .addTo(map);
 
 
   function onDragEnd() {
-  const lngLat = marker.getLngLat();
-  coordinates.style.display = 'block';
-  coordinates.innerHTML =
-  'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    const lngLat = marker.getLngLat();
+    coordinates.style.display = 'block';
+    coordinates.innerHTML =
+    'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
 
-      //pass lat and lng
-      console.log(lngLat)
-      const latInput = document.getElementById("place_latitude");
-      const lngInput = document.getElementById("place_longitude");
-      console.log(latInput)
+    //pass lat and lng
+    console.log(lngLat)
+    const latInput = document.getElementById("place_latitude");
+    const lngInput = document.getElementById("place_longitude");
+    console.log(latInput)
 
-      latInput.value = lngLat.lat;
-      lngInput.value = lngLat.lng;
+    latInput.value = lngLat.lat;
+    lngInput.value = lngLat.lng;
   }
 
   marker.on('dragend', onDragEnd);

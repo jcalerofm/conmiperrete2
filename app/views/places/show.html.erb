@@ -26,22 +26,7 @@
   </div>
 
   <div id="reviews">
-    <% if @place.reviews.blank? %>
-    <h3>Se el primero en dejar una valoración</h3>
-    <% else %>
-    <h3>Valoraciones</h3>
-    <% @place.reviews.each do |review| %>
-      <p id="review-<%= review.id %>"><%= review.content %></p>
-      <% end %>
-    <% end %>
-    <h4>Tu valoración</h4>
-    <%= simple_form_for([ @place, @review ], remote: true) do |f| %>
-      <%= f.input :content, as: :text %>
-      <%= f.button :submit %>
-    <% end %>
-
-
-
+   <%= render 'reviews/form' %>
   </div>
 
 

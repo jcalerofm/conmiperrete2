@@ -40,6 +40,7 @@ class PlacesController < ApplicationController
 
   def show
     set_place
+    @review = Review.new
   end
 
   def new

@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_user
+  # before_action :set_user
   def new
     @review = Review.new
   end
@@ -9,23 +9,25 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review.params)
+    @place = Place.find(params[:place_id])
+    @review = Review.new(review_params)
+    @review.place = @place
     if @review.save
-      redirect_to user_path(@user)
+      redirect_to place_path(@place, anchor: "review-#{@review.id}")
     else
-      render :new
+      render 'places/show'
     end
 
   end
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
+  # def set_user
+  #   @user = User.find(params[:user_id])
+  # end
 
   def review_params
-    params.require(:review).permit(:rating, :content)
+    params.require(:review).permit(:content)
   end
 
 end

@@ -1,7 +1,7 @@
 class Place < ApplicationRecord
   CATEGORIES = ['Playa', 'Parque']
   has_one_attached :photo
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   reverse_geocoded_by :latitude, :longitude
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

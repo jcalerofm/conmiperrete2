@@ -23,18 +23,28 @@ class PlacesController < ApplicationController
     end
 
 
-    if params[:places]
+    if params[:places] != ''
       @temp_place = Place.create(name:'temp', description: 'temp', address: params[:places])
       @center = [@temp_place.latitude.dup, @temp_place.longitude.dup]
       marker = {
-        # lat: @temp_place.latitude,
-        # lng: @temp_place.longitude,
+        lat: @temp_place.latitude,
+        lng: @temp_place.longitude,
+        image_url: helpers.asset_url('compass.png'),
         # infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
       }
       @markers << marker
       @temp_place.delete
     else
-      @center = 0
+      @temp_place = Place.create(name:'temp', description: 'temp', address: 'Madrid')
+      @center = [ 40.41682800299995, -3.703551575565683,]
+      marker = {
+        lat: @center[0],
+        lng: @center[1],
+        image_url: helpers.asset_url('compass.png'),
+        # infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
+      }
+      @markers << marker
+      @temp_place.delete
     end
   end
 

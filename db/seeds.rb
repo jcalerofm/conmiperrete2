@@ -8,6 +8,7 @@ User.destroy_all
 
 puts 'Creating a User'
 u1 = User.create(
+	username: 'Mike',
   email: "123@123.com",
   password: 123456
   )

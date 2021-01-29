@@ -44,7 +44,6 @@ import { initMapboxCenter } from '../plugins/init_mapbox_center';
 
 document.addEventListener('turbolinks:load', () => {
   const mapElement = document.getElementById('map');
-  console.log(mapElement);
   if (mapElement) {
     const center = JSON.parse(mapElement.dataset.center);
     if (center) {

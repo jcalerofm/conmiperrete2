@@ -1,7 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,9 +13,8 @@
 
 @media (min-width: 1640px) {
   .navbar-lewagon .navbar-brand img {
-  width: 250px;
-}
-
+    width: 250px;
+  }
 }
 
 // navbar-home
@@ -29,16 +27,19 @@
   flex-grow: 0;
 }
 
-
-.navbar-lewagon-home{
+.navbar-lewagon-home {
   justify-content: space-between;
   text-align: left;
   background-color: transparent;
 }
-#login-home{
-  color: white;
+
+.nav-item {
+  text-align: right;
 }
 
-#signup-home{
-  color: white;
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.1);
 }

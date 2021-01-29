@@ -3,6 +3,7 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
+    p params[:places]
     @places = Place.geocoded
     @markers = @places.map do |place|
       if place.category == Place::CATEGORIES[0]
@@ -24,25 +25,28 @@ class PlacesController < ApplicationController
     
 
     if params[:places] == '' || params[:places] == nil
-      @temp_place = Place.create(name:'temp', description: 'temp', address: 'Madrid')
-      @center = [ 40.41682800299995, -3.703551575565683,]
+      @temp_place = Place.create(name:'Madrid', description: 'temp', address: 'Madrid')
+      @center = [ @temp_place.latitude.dup, @temp_place.longitude.dup,]
       marker = {
-        lat: @center[0],
-        lng: @center[1],
+        lat: @temp_place.latitude,
+        lng: @temp_place.longitude,
         image_url: helpers.asset_url('compass.png'),
-        # infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
+        infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
       }
       @markers << marker
       @temp_place.delete
     
     else
-      @temp_place = Place.create(name:'temp', description: 'temp', address: params[:places])
+      name = params[:places].split(',')
+      p name
+      @temp_place = Place.create(name:name[0], description: 'temp', address: params[:places])
+      p params[:places]
       @center = [@temp_place.latitude.dup, @temp_place.longitude.dup]
       marker = {
         lat: @temp_place.latitude,
         lng: @temp_place.longitude,
         image_url: helpers.asset_url('compass.png'),
-        # infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
+        infoWindow: render_to_string(partial: "info_window", locals: { place: @temp_place }),
       }
       @markers << marker
       @temp_place.delete

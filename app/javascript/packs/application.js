@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
 
 //mapbox
 
-// import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from '../plugins/init_mapbox_create';
 import { initMapboxCenter } from '../plugins/init_mapbox_center';
 
 document.addEventListener('turbolinks:load', () => {
@@ -54,7 +54,7 @@ document.addEventListener('turbolinks:load', () => {
   }
 });
 
-import { draggableMap } from '../plugins/init_mapbox';
+import { draggableMap } from '../plugins/init_mapbox_create';
 
 document.addEventListener('turbolinks:load', () => {
   draggableMap();

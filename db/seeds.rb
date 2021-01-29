@@ -52,7 +52,7 @@ castellar.photo.attach(io:file1, filename:'playa.jpg', content_type: 'image/jpg'
 
 #Place 3
 
-
+file3 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
 
 rubina = Place.create(
     name: 'La Rubina',
@@ -63,6 +63,9 @@ rubina = Place.create(
     longitude:3.1425032409568954,
     user: u1
 )
+rubina.photo.attach(io:file3, filename:'playa.jpg', content_type: 'image/jpg')
+
+file4 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
 
 ribera = Place.create(
     name: 'La Ribera',
@@ -73,6 +76,12 @@ ribera = Place.create(
     longitude:-5.315911953245997 ,
     user: u1
 )
+
+ribera.photo.attach(io:file4, filename:'playa.jpg', content_type: 'image/jpg')
+
+
+file5 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
+
 vallcarca = Place.create(
     name: 'Vallcarca',
     description: 'Se trata de una playa natural, carente de servicios, y muy visitada por los habitantes de la ciudad de Barcelona',
@@ -82,6 +91,11 @@ vallcarca = Place.create(
     longitude:1.8662282565050197,
     user: u1
 )
+vallcarca.photo.attach(io:file5, filename:'playa.jpg', content_type: 'image/jpg')
+
+
+file6 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
+
 cubelles = Place.create(
     name: 'Cubelles',
     description: 'Situada junto a una central térmica y formada por piedra y arena',
@@ -91,6 +105,12 @@ cubelles = Place.create(
     longitude:1.6558589629534477,
     user: u1
 )
+
+cubelles.photo.attach(io:file6, filename:'playa.jpg', content_type: 'image/jpg')
+
+
+file7 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
+
 cementiri = Place.create(
     name: 'Cementiri',
     description: 'Cala de roca y piedras',
@@ -100,6 +120,12 @@ cementiri = Place.create(
     longitude:0.8111150222279314,
     user: u1
 )
+
+cementiri.photo.attach(io:file7, filename:'playa.jpg', content_type: 'image/jpg')
+
+
+file8 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
+
 bassa = Place.create(
     name: "Bassa d'Arena",
     description: 'La playa para perros de Tarragona mejor valorada. Rodeada de un entorno virgen y suelo de arena fina',
@@ -109,6 +135,11 @@ bassa = Place.create(
     longitude:0.8111150222279314,
     user: u1
 )
+bassa.photo.attach(io:file8, filename:'playa.jpg', content_type: 'image/jpg')
+
+
+file9 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
+
 alforja = Place.create(
     name: "Playa de la Riera d’Alforja ",
     description: ' Playa de piedra ubicada en la desembocadura de la Riera',
@@ -118,6 +149,12 @@ alforja = Place.create(
     longitude:1.0566609460325616,
     user: u1
 )
+
+alforja.photo.attach(io:file9, filename:'playa.jpg', content_type: 'image/jpg')
+
+
+file10 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
+
 xarco = Place.create(
     name: "Playa del Xarco",
     description: 'Pequeña cala de piedras y difícil acceso situada al sur del municipio y carente de servicios',
@@ -127,6 +164,12 @@ xarco = Place.create(
     longitude: -0.2813647698371917,
     user: u1
 )
+
+xarco.photo.attach(io:file10, filename:'playa.jpg', content_type: 'image/jpg')
+
+
+file11 = URI.open("https://res.cloudinary.com/dhkoueugk/image/upload/v1592425348/Perretes/klara-kulikova-yWpEmVAT-cc-unsplash_usqyp4.jpg")
+
 mym = Place.create(
     name: "Mar y Montaña",
     description: 'Pequeña y tranquila playa de piedras',
@@ -136,6 +179,7 @@ mym = Place.create(
     longitude: -0.022126515344187216,
     user: u1
 )
+mym.photo.attach(io:file11, filename:'playa.jpg', content_type: 'image/jpg')
 
 
 

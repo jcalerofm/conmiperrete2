@@ -27,6 +27,10 @@ const initMapboxCenter = (center) => {
       zoom: 8,
     });
 
+    if (areEqual(center, madrid) === true) {
+      map.setZoom(6);
+    }
+
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
 

@@ -1,0 +1,17 @@
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn:hover {
+  filter: brightness(95%);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+}

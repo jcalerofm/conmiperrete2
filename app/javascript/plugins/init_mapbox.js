@@ -85,12 +85,12 @@ const draggableMap = () => {
   if (mapper != null) {
     mapboxgl.accessToken = mapper.dataset.mapboxApiKey;
 
-    const map = new mapboxgl.Map({
-      container: 'mapper',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-3.703551575565683, 40.41682800299995],
-      zoom: 5,
-    });
+    // const map = new mapboxgl.Map({
+    //   container: 'mapper',
+    //   style: 'mapbox://styles/mapbox/streets-v11',
+    //   center: [-3.703551575565683, 40.41682800299995],
+    //   zoom: 11,
+    // });
 
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');

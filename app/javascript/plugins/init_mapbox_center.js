@@ -1,34 +1,31 @@
-
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-
 
 const initMapboxCenter = (center) => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) {
-  // only build a map if there's a div#map to inject into
+    // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
     let map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [center[1], center[0]],
-      zoom: 10
+      zoom: 8,
     });
 
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
 
     function switchLayer(layer) {
-    var layerId = layer.target.id;
-    map.setStyle('mapbox://styles/mapbox/' + layerId);
+      var layerId = layer.target.id;
+      map.setStyle('mapbox://styles/mapbox/' + layerId);
     }
 
     for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
+      inputs[i].onclick = switchLayer;
     }
-
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
@@ -51,7 +48,6 @@ const initMapboxCenter = (center) => {
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     //                                   mapboxgl: mapboxgl }));
   }
-
 };
 
 export { initMapboxCenter };

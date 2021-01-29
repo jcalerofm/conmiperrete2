@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
 //mapbox
 
 import { initMapbox } from '../plugins/init_mapbox_create';
-import { initMapboxCenter } from '../plugins/init_mapbox_center';
+import { initMapboxCenter } from '../plugins/init_mapbox_index';
 
 document.addEventListener('turbolinks:load', () => {
   const mapElement = document.getElementById('map');

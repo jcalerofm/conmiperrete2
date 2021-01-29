@@ -1,12 +1,24 @@
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
+//function to check if we are defaulting to Madrid or not in order to decide the zoom
+function areEqual(a, b) {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length !== b.length) return false;
+  for (var i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+
 const initMapboxCenter = (center) => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) {
     // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    const madrid = [40.4167047, -3.7035825];
 
     let map = new mapboxgl.Map({
       container: 'map',

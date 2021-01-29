@@ -1,25 +1,30 @@
 <%= simple_form_for @place do |f| %>
-<%= f.input :name, label: 'Nombre'%>
-<%= f.input :category, as: :radio_buttons, collection: Place::CATEGORIES, label: 'Categoría' %>
-<%= f.input :description, label: 'Descripción' %>
+<%= f.input :name, label: 'Nombre', label_html:{class:'font-weight-bold mt-2'}%>
+<%= f.input :category, as: :radio_buttons,label: 'Categoría', label_class: 'font-weight-bold mt-2', collection: Place::CATEGORIES %>
+<%= f.input :description, label: 'Descripción', label_html:{class:'font-weight-bold mt-2'} %>
 <%= f.input :longitude, :as => :hidden %>
 <%= f.input :latitude,  :as => :hidden  %>
-<%= f.input :photo, as: :file, label_:'Sube una foto' %>
-<p> Selecciona en el mapa </p>
-<div id="mapper"
-      class="container"
-     style="width: 80%; height: 600px; border: 5px"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  <<div id="menu">
-    <input
-    id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked"/>
-    <label for="streets-v11">mapa</label>
-    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
-    <label for="satellite-v9">satelite</label>
-    </div>
+<%= f.input :photo, as: :file, label:'Sube una foto', label_html:{class:'font-weight-bold mt-2'} %>
+<div class='mt-4 pt-4'>
+  <h3> Selecciona un lugar en el mapa </h3>
+  <div id="mapper"
+        class="container"
+      style="width: 80%; height: 600px; border: 5px"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <<div id="menu">
+      <input
+      id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked"/>
+      <label for="streets-v11">mapa</label>
+      <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+      <label for="satellite-v9">satelite</label>
+      </div>
+  </div>
 </div>
-<%= f.submit 'Crear'%>
-<% end %>
+
+<div class='d-flex justify-content-end'>
+  <%= f.submit 'Crear', style:'border-radius:5px; padding:7px 12px', class:'btn-primary'%>
+  <% end %>
+</div>
 
 
 <pre id="coordinates" class="coordinates" style="visibility: hidden"></pre>

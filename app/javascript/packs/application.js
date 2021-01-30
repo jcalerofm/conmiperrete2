@@ -49,7 +49,7 @@ document.addEventListener('turbolinks:load', () => {
     if (center) {
       initMapboxCenter(center);
     } else {
-      initMapbox();
+      draggableMap();
     }
   }
 });
